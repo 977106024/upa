@@ -5,10 +5,10 @@ const axios = require('axios');
 const colors = require('colors')
 
 const list = {
-  '首创证券':'SH601136',
-  '比亚迪': 'SZ002594',
-  '宁德时代': 'SZ300750',
-  '紫光国威': 'SZ002049'
+  '首':'SH601136',
+  '-': 'SZ002594',
+  '比': 'SZ300750',
+  '*': 'SZ002049'
 }
 
 const query = process.argv[2] ? process.argv[2] : Object.values(list).toString()
@@ -22,6 +22,7 @@ axios.get(url)
       const {low,high} = item
       let current = ''
       let percent = ''
+      let name = Object.keys(list)[i]
       if(String(item.percent).indexOf('-') === -1){
         current = colors.red.bold(item.current)
         percent = colors.red(item.percent+'%')
@@ -29,7 +30,10 @@ axios.get(url)
         current = colors.green.bold(item.current)
         percent = colors.green(item.percent+ '%')
       }
-        console.log(Object.keys(list)[i],current,percent,     '低:',low);
+      if(name == '*'){
+        name = colors.magenta(name)
+      }
+        console.log(name,current,percent,    low);
     });
     
   })
