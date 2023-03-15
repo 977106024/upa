@@ -11,6 +11,8 @@ const list = {
   '*': 'SZ002049'
 }
 
+const errorList = ['Maximum call stack size exceeded','"god" is not defined','Invalid or unexpected token','Cannot read property "node" of undefined']
+
 const query = process.argv[2] ? process.argv[2] : Object.values(list).toString()
 const url = `https://stock.xueqiu.com/v5/stock/realtime/quotec.json?symbol=${query}`
 
@@ -25,10 +27,12 @@ axios.get(url)
       let name = Object.keys(list)[i]
       if(String(item.percent).indexOf('-') === -1){
         current = colors.red.bold(item.current)
-        percent = colors.red(item.percent+'%')
+        percent = colors.red(item.percent)
       }else{
         current = colors.green.bold(item.current)
-        percent = colors.green(item.percent+ '%')
+        const i = Math.floor(Math.random()* errorList.length)
+        console.error(errorList[i])
+        percent = colors.green(item.percent)
       }
       if(name == '*'){
         name = colors.magenta(name)
