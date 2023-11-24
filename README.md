@@ -2,4 +2,4 @@
 
 npm i assaulta -g   
 安装后在命令行中输入upa  
-upa 后面可跟代码参数 如 upa SZ30059
+可查询个股详情数据 如 upa 300033
