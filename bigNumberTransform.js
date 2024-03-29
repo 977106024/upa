@@ -2,7 +2,7 @@
  * 大数字转换，将大额数字转换为万、千万、亿等
  * @param value 数字值
  */
-module.exports = function bigNumberTransform (value) {
+export function bigNumberTransform (value) {
     const newValue = ['', '', '']
     let fr = 1000
     let num = 3
