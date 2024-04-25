@@ -13,19 +13,19 @@ const addLastName = (val) => {
   }
 }
 
-if (process.argv[2] == 'cc') {
+if (process.argv[2]?.startsWith('c')) {
   getCC()
 } else {
 
 
   const list = [
     'SH603019',
-    'SZ002230',
     'SH601138',
     'SZ000977',
-    'SH603220'
+    'SH603220',
+    'SZ000938'
   ]
-  const nameArr = ['✨', ' ⌨', ' 💻', '👨‍🔧', '🧭']
+  const nameArr = ['✨',' 💜',  ' 💻', '👨‍🔧', '🧭']
 
   const errorList = ['Maximum call stack size exceeded', '"god" is not defined', 'Invalid or unexpected token', 'Cannot read property "node" of undefined']
 
@@ -87,9 +87,7 @@ if (process.argv[2] == 'cc') {
           const { current, percent } = item
           return [current, percent]
         });
-        console.trace(arr);
-
-
+        console.trace('XNY', arr);
       })
       .catch(err => {
         console.log(err, 'sss');
@@ -98,7 +96,6 @@ if (process.argv[2] == 'cc') {
     const qs = [
       'SH601136',
       'SH512880',
-      'SZ300847',
       'SZ300033',
       'SZ300059'
     ]
